@@ -1,0 +1,28 @@
+{
+  "name": "hannover-elm-ui-demo",
+  "version": "1.0.0",
+  "description": "A small example of elm-ui for absolute beginners.",
+  "main": "app.js",
+  "scripts": {
+    "build": "npx elm make src/Main.elm",
+    "reactor": "elm reactor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterZilz/hannover-elm-ui-demo.git"
+  },
+  "keywords": [
+    "elm",
+    "hannover"
+  ],
+  "author": "Peter Zilz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeterZilz/hannover-elm-ui-demo/issues"
+  },
+  "homepage": "https://github.com/PeterZilz/hannover-elm-ui-demo#readme",
+  "dependencies": {
+    "elm": "^0.19.1-5",
+    "elm-format": "^0.8.5"
+  }
+}
