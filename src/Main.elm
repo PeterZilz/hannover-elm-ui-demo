@@ -1,30 +1,67 @@
 module Main exposing (..)
 
-import Element exposing (Element, el, text, row, alignRight, fill, width, rgb255, spacing, centerY, padding)
+import Element exposing (Element, alignRight, centerX, centerY, column, el, fill, padding, rgb, rgb255, row, spacing, text, width)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+import Element.Input exposing (button)
+import String exposing (fromInt)
 
 
-main = 
-    Element.layout []
-        myRowOfStuff
+plusButton =
+    button [ magenta, Border.width buttonWidth ] { onPress = Nothing, label = text "+" }
 
-myRowOfStuff : Element msg
-myRowOfStuff =
-    row [ width fill, centerY, spacing 30 ]
-        [ myElement
-        , myElement
-        , el [ alignRight ] myElement
+
+minusButton =
+    button [ magenta, Border.width buttonWidth ] { onPress = Nothing, label = text "-" }
+
+
+controlRow number =
+    row [ green, Border.width rowWidth ]
+        [ minusButton
+        , text (fromInt number)
+        , plusButton
         ]
 
 
-myElement : Element msg
-myElement =
-    el
-        [ Background.color (rgb255 240 0 245)
-        , Font.color (rgb255 255 255 255)
-        , Border.rounded 3
-        , padding 30
-        ]
-        (text "stylish!")
+main =
+    Element.layout [ red, Border.width mainWidth ]
+        (column [ centerX, black, Border.width columnWidth ]
+            [ controlRow 1
+            , controlRow 2
+            , controlRow 3
+            , controlRow 4
+            ]
+        )
+
+
+buttonWidth =
+    2
+
+
+rowWidth =
+    2
+
+
+columnWidth =
+    2
+
+
+mainWidth =
+    5
+
+
+red =
+    Border.color (rgb255 255 0 0)
+
+
+green =
+    Border.color (rgb255 0 255 0)
+
+
+magenta =
+    Border.color (rgb255 255 0 255)
+
+
+black =
+    Border.color (rgb 0 0 0)
